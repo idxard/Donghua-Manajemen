@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Noto+Serif+SC:wght@600&display=swap"
+        rel="stylesheet">
+    <title>Manajemen Donghua</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="main-title">Manajemen Donghua</h1>
+        <p class="subtitle-chinese">动漫管理</p>
+        <div class="toolbar">
+            <button onclick="openModal()">Tambah Donghua</button>
+            <button onclick="refreshTable()">Refresh</button>
+            <button onclick="exportCSV()">Export CSV</button>
+            <button onclick="exportJSON()">Export JSON</button>
+        </div>
+        <div class="filters">
+            <input type="text" id="searchInput" placeholder="Cari judul..." onkeyup="renderTable()" />
+            <select id="statusFilter" onchange="renderTable()">
+                <option value="All">Semua Status</option>
+                <option value="Ongoing">Ongoing</option>
+                <option value="Selesai">Selesai</option>
+            </select>
+        </div>
+        <table id="donghuaTable">
+            <thead>
+                <tr>
+                    <th onclick="sortTable('date')">Tanggal</th>
+                    <th onclick="sortTable('judul')">Judul</th>
+                    <th onclick="sortTable('status')">Status</th>
+                    <th onclick="sortTable('episode')">Episode</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <!-- Modal Popup -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle">Tambah Donghua</h2>
+            <form id="donghuaForm" onsubmit="saveDonghua(event)">
+                <input type="hidden" id="editIndex" />
+                <label>Judul:</label>
+                <input type="text" id="judulInput" placeholder="Judul Donghua" required />
+                <label>Status:</label>
+                <select id="statusInput" required>
+                    <option value="Ongoing">Ongoing</option>
+                    <option value="Selesai">Selesai</option>
+                </select>
+                <label>Episode Terakhir:</label>
+                <input type="number" id="episodeInput" placeholder="Episode terakhir" required />
+
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" onclick="closeModal()">Batal</button>
+                    <button type="submit">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

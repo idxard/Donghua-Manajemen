@@ -1,0 +1,276 @@
+body {
+  font-family: Arial, sans-serif;
+  background: url("background.png") no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 10px auto;
+  background: #fff;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.main-title {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #1d4ed8;
+  margin: 0;
+}
+
+.subtitle-chinese {
+  text-align: center;
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #374151;
+  margin-top: 6px;
+}
+/* Judul */
+h1 {
+  text-align: center;
+  color: #1d4ed8;
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+}
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #2563eb;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s;
+  flex: 1;
+  min-width: 120px;
+}
+
+button:hover {
+  background-color: #1e40af;
+}
+button:active {
+  transform: scale(0.97);
+}
+
+/* Filter */
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+input, select {
+  flex: 1;
+  min-width: 140px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* Tabel */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th {
+  background: #bfdbfe;
+  padding: 8px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+td {
+  padding: 8px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: center;
+}
+
+tr:hover {
+  background: #f3f4f6;
+}
+
+/* Status warna */
+.status-ongoing {
+  color: #047857;
+  font-weight: bold;
+}
+.status-selesai {
+  color: #dc2626;
+  font-weight: bold;
+}
+
+/* Tombol aksi dalam tabel */
+td button {
+  padding: 6px 10px;
+  font-size: 13px;
+  border-radius: 6px;
+  margin: 2px;
+  min-width: 70px;
+}
+td button:first-child {
+  background: #2563eb;
+}
+td button:first-child:hover {
+  background: #1e40af;
+}
+td button:last-child {
+  background: #dc2626;
+}
+td button:last-child:hover {
+  background: #b91c1c;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 20;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(2px);
+}
+
+.modal-content {
+  background: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 16px;
+  width: 92%;
+  max-width: 400px;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  animation: slideDown 0.3s ease-in-out;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: #1d4ed8;
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.close {
+  position: absolute;
+  top: 12px; right: 15px;
+  font-size: 26px;
+  cursor: pointer;
+  color: #555;
+}
+.close:hover { color: #000; }
+
+/* Form modal */
+#donghuaForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#donghuaForm label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+#donghuaForm input, 
+#donghuaForm select {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 14px;
+}
+
+#donghuaForm input:focus, 
+#donghuaForm select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37,99,235,0.2);
+}
+
+#donghuaForm .form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+#donghuaForm button {
+  flex: 1;
+  font-size: 14px;
+}
+
+/* Tombol batal */
+#donghuaForm .btn-cancel {
+  background: #9ca3af;
+}
+#donghuaForm .btn-cancel:hover {
+  background: #6b7280;
+}
+
+/* Animasi */
+@keyframes slideDown {
+  from { transform: translateY(-40px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsif layar HP 16:9 */
+@media (max-width: 600px) {
+  .container {
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  button {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+
+  th, td {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  td button {
+    font-size: 12px;
+    padding: 5px 8px;
+    min-width: 60px;
+  }
+
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .modal-content {
+    width: 95%;
+    margin: 20% auto;
+    padding: 15px;
+  }
+}
